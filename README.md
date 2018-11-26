@@ -1,4 +1,4 @@
-The repo makes yolov3(tiny/standard version) net more fast and simple on Android, Raspberry Pi, other lightweight devices.
+The repo makes yolov3 (tiny/standard version) net more fast and simple on Android, Raspberry Pi, other lightweight devices.
 The size of core limited to 200kb and you can modify and customize easily. And anything unrelated was dropped, including cuda computing, trainning period and some layers. 
 
 ### Build 
@@ -7,12 +7,12 @@ The size of core limited to 200kb and you can modify and customize easily. And a
 ➜  ~ mv libdarknet.so /lib/
 ~~~
 
-### Demo1
+### Python Demo
 Check object detection demo in detector.py. You will get a C struct containing object names, probability and bounding boxs' axis as API. It works if you got predicition images like this,
 
 ![pred_giraffe](results/pred_giraffe.png)
 
-###  Restful Server Demo
+### Restful Server Demo
 
 ![](https://blog.keras.io/img/simple-keras-rest-api/dog.jpg)
 
