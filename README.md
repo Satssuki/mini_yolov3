@@ -3,8 +3,7 @@ The size of core limited to 200kb and you can modify and customize easily. And a
 
 ### Build 
 ~~~bash
-➜  ~ make
-➜  ~ mv libdarknet.so /lib/
+➜  ~ git clone https://github.com/cookfish/mini_yolov3;cd mini_yolov3;make
 ~~~
 
 ### Python Demo
@@ -19,9 +18,9 @@ Check object detection demo in detector.py. You will get a C struct containing o
 ~~~bash
 #launch restful_server.py and testing rest api using curl 
 #upload dog.jpg, and we got the detail of detection 
-curl -X POST -F image=@dog.jpg 'http://localhost:5000/detect'
-{
-  "predictions:": [
+➜ curl -X POST -F image=@dog.jpg 'http://localhost:5000/detect'
+  {
+    "predictions:": [
     {
       "h": 56.46, 
       "label": "dog", 
