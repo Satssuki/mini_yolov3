@@ -8,6 +8,7 @@ ARCH= -gencode arch=compute_30,code=sm_30 \
 VPATH=./src/
 SLIB=libdarknet.so
 OBJDIR=./obj/
+LIBDIR=/lib/
 
 CC=gcc
 OPTS=-Ofast
@@ -21,7 +22,6 @@ endif
 
 CFLAGS+=$(OPTS)
 
-
 OBJ=gemm.o utils.o activations.o convolutional_layer.o list.o image.o  im2col.o \
    col2im.o blas.o  data.o matrix.o network.o  parser.o option_list.o \
    route_layer.o upsample_layer.o maxpool_layer.o shortcut_layer.o box.o layer.o batchnorm_layer.o \
@@ -30,7 +30,7 @@ OBJ=gemm.o utils.o activations.o convolutional_layer.o list.o image.o  im2col.o 
 OBJS = $(addprefix $(OBJDIR), $(OBJ))
 DEPS = $(wildcard src/*.h) Makefile include/darknet.h
 
-all: obj  $(SLIB) $(ALIB)
+all: obj  $(SLIB) $(ALIB) $(copy)
 #all: obj  results $(SLIB) $(ALIB) $(EXEC)
 
 $(SLIB): $(OBJS)
@@ -44,7 +44,9 @@ $(OBJDIR)%.o: %.cu $(DEPS)
 
 obj:
 	mkdir -p obj
-
+copy:
+    cp -f $(SLIB) $(LIBDIR)
+    
 .PHONY: clean
 
 clean:
